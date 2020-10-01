@@ -43,6 +43,7 @@ function countriesSelect(country) {
   dropdownInput.value = country.innerText;
   dropdownClose();
   favCountriesAdd(country);
+  dropdownList.scroll(0, 0)
   dropdownItems.forEach(val => val.classList.remove('none'));
 }
 
