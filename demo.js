@@ -1,4 +1,4 @@
-
+// DOM elements used here
 const countryPickerButton = document.getElementById('country_picker-button'),
   countryPickerInput = document.getElementById('country_picker-input');
   countryPickerItems = document.querySelectorAll('div[class="country_picker-item"]'),
@@ -6,7 +6,7 @@ const countryPickerButton = document.getElementById('country_picker-button'),
   countryPickerList = document.getElementById('country_picker-list'),
   countryPickerArrow = document.getElementById('country_picker-icon');
 
-let favCountriesDefault = [
+let favCountriesDefault = [ //default settled countries
   document.querySelector('div[data-code="CN"]'),
   document.querySelector('div[data-code="DE"]'),
   document.querySelector('div[data-code="FR"]'),
@@ -14,19 +14,26 @@ let favCountriesDefault = [
   document.querySelector('div[data-code="US"]'),
   document.querySelector('div[data-code="RU"]')
 ],
-  favCountries = [];
+  favCountries = []; // Array-cache with recently clicked countries
 
+// Search
 countryPickerInput.oninput = () => countryPickerSearch();
+
+// Menu opened when user want to write something in input
 countryPickerInput.onfocus = () => countryPickerOpen();
 
+// Menu toggle by button click
 countryPickerButton.onclick = () => countryPickerToggle();
 
+// Country selecting event
 countryPickerItems.forEach((element) => {
   element.onclick = (e) => countriesSelect(e.target);
 })
 
+// Filling favCountyes cache by countries settled by default
 favCountriesDefault.forEach((val) => favCountriesAdd(val));
 
+// Menu closing when user clicked outside it
 document.onclick = (e) => {
   const targetClass = e.target.className;
   if (targetClass.slice(0, 14) !== 'country_picker') countryPickerClose();
