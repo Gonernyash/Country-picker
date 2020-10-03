@@ -27,6 +27,11 @@ dropdownItems.forEach((element) => {
 
 favCountriesDefault.forEach((val) => favCountriesAdd(val));
 
+document.onclick = (e) => {
+  const targetClass = e.target.className;
+  if (targetClass.slice(0, 8) !== 'dropdown') dropdownClose();
+}
+
 function dropdownSearch() {
   let inputValue = dropdownInput.value.toLowerCase();
   dropdownItems.forEach(val => val.classList.remove('none'));
