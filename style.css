@@ -9,7 +9,7 @@
     display: none !important;
 }
 
-.dropdown {
+.country_picker {
     width: 210px;
     margin: 0;
     padding: 0;
@@ -20,7 +20,7 @@
     box-shadow: 0 0 3px rgba(0,0,0,0.5);
 }
 
-#dropdown-main {
+#country_picker-main {
     padding: 0 8px;
     border: 1px solid #f2f2f2;
     border-top: 1px solid #eeeeee;
@@ -28,22 +28,22 @@
     height: 24px;
 }
 
-.dropdown-input {
+.country_picker-input {
     margin-top: 5px;
     font-size: 10px;
     border: none;
 }
 
-.dropdown-input:focus {
+.country_picker-input:focus {
     outline: none;
 }
 
-.dropdown-favs {
+.country_picker-favs {
     position: relative;
     padding-bottom: 7px;
 }
 
-.dropdown-favs:after {
+.country_picker-favs:after {
     display: block;
     content:"";
     width:  95%;
@@ -55,7 +55,7 @@
     right: 0;
 }
 
-.dropdown-list {
+.country_picker-list {
     width: 100%;
     height: auto;
     max-height: 0;
@@ -64,66 +64,66 @@
     transition: max-height .2s linear;
 }
 
-.dropdown-list--toggled {
+.country_picker-list--toggled {
     max-height: 144px;
     overflow-y: auto;
 }
 
-.dropdown-list::-webkit-scrollbar {
+.country_picker-list::-webkit-scrollbar {
     width: 12px;
 }
 
-.dropdown-list::-webkit-scrollbar-track {
+.country_picker-list::-webkit-scrollbar-track {
     background-color: #f1f1f1;
 }
 
-.dropdown-list::-webkit-scrollbar-thumb {
+.country_picker-list::-webkit-scrollbar-thumb {
     background-color: #c1c1c1;
     border-left: 1px solid transparent;
     border-right: 1px solid transparent;
     background-clip: content-box;
 }
 
-.dropdown-list::-webkit-scrollbar-button {
+.country_picker-list::-webkit-scrollbar-button {
     background-color: #f1f1f1;
     height: 16px;
 }
 
-.dropdown-list::-webkit-scrollbar-button:vertical:decrement {
+.country_picker-list::-webkit-scrollbar-button:vertical:decrement {
     background: url(./arrows/arrow-top.svg) center no-repeat, #f1f1f1;
 }
 
-.dropdown-list::-webkit-scrollbar-button:vertical:increment {
+.country_picker-list::-webkit-scrollbar-button:vertical:increment {
     background: url(./arrows/arrow-bottom.svg) center no-repeat, #f1f1f1;
 }
 
-.dropdown-item {
+.country_picker-item {
     display: flex;
     flex-direction: row;
     padding: 2px 6px 1.7px 6px;
 }
 
-.dropdown-list > .dropdown-item:last-child {
+.country_picker-list > .country_picker-item:last-child {
     margin-bottom: 7px;
 }
 
-.dropdown-item:hover {
+.country_picker-item:hover {
     background-color: #f1f1f1;
 }
 
-.dropdown-flag {
+.country_picker-flag {
     width: 13px !important;
     height: 13px !important;
     margin-right: 7px;
     pointer-events: none;
 }
 
-.dropdown-title {
+.country_picker-title {
     line-height: 1.5;
     pointer-events: none;
 }
 
-.dropdown-button {
+.country_picker-button {
     height: 12px;
     width: 12px;
     padding: 0;
@@ -136,15 +136,15 @@
     right: 7px;
 }
 
-.dropdown-button:focus {
+.country_picker-button:focus {
     outline: none;
 }
 
-.dropdown-icon {
+.country_picker-icon {
     position: relative;
 }
 
-.dropdown-icon:before{
+.country_picker-icon:before{
     display: block;
     content: "";
     width: 3px;
@@ -157,7 +157,7 @@
     transform: rotate(45deg);
 }
 
-.dropdown-icon--toggled:before {
+.country_picker-icon--toggled:before {
     transform: rotate(225deg);
     top: -1px;
 }

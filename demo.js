@@ -1,10 +1,10 @@
 
-const dropdownButton = document.getElementById('dropdown-button'),
-  dropdownInput = document.getElementById('dropdown-input');
-  dropdownItems = document.querySelectorAll('div[class="dropdown-item"]'),
+const countryPickerButton = document.getElementById('country_picker-button'),
+  countryPickerInput = document.getElementById('country_picker-input');
+  countryPickerItems = document.querySelectorAll('div[class="country_picker-item"]'),
   favCountriesBlock = document.getElementById('fav-countries'),
-  dropdownList = document.getElementById('dropdown-list'),
-  dropdownArrow = document.getElementById('dropdown-icon');
+  countryPickerList = document.getElementById('country_picker-list'),
+  countryPickerArrow = document.getElementById('country_picker-icon');
 
 let favCountriesDefault = [
   document.querySelector('div[data-code="CN"]'),
@@ -16,12 +16,12 @@ let favCountriesDefault = [
 ],
   favCountries = [];
 
-dropdownInput.oninput = () => dropdownSearch();
-dropdownInput.onfocus = () => dropdownOpen();
+countryPickerInput.oninput = () => countryPickerSearch();
+countryPickerInput.onfocus = () => countryPickerOpen();
 
-dropdownButton.onclick = () => dropdownToggle();
+countryPickerButton.onclick = () => countryPickerToggle();
 
-dropdownItems.forEach((element) => {
+countryPickerItems.forEach((element) => {
   element.onclick = (e) => countriesSelect(e.target);
 })
 
@@ -29,15 +29,15 @@ favCountriesDefault.forEach((val) => favCountriesAdd(val));
 
 document.onclick = (e) => {
   const targetClass = e.target.className;
-  if (targetClass.slice(0, 8) !== 'dropdown') dropdownClose();
+  if (targetClass.slice(0, 14) !== 'country_picker') countryPickerClose();
 }
 
-function dropdownSearch() {
-  let inputValue = dropdownInput.value.toLowerCase();
-  dropdownItems.forEach(val => val.classList.remove('none'));
+function countryPickerSearch() {
+  let inputValue = countryPickerInput.value.toLowerCase();
+  countryPickerItems.forEach(val => val.classList.remove('none'));
   if (inputValue !== '') {
     favCountriesBlock.classList.add('none');
-    let wrongArr = Array.from(dropdownItems).filter((element) => element.innerText.toLowerCase().search(inputValue.toLowerCase()) === -1);
+    let wrongArr = Array.from(countryPickerItems).filter((element) => element.innerText.toLowerCase().search(inputValue.toLowerCase()) === -1);
     wrongArr.forEach(val => val.classList.add('none'));
   } else {
     favCountriesBlock.classList.remove('none');
@@ -45,11 +45,11 @@ function dropdownSearch() {
 }
 
 function countriesSelect(country) {
-  dropdownInput.value = country.innerText;
-  dropdownClose();
+  countryPickerInput.value = country.innerText;
+  countryPickerClose();
   favCountriesAdd(country);
-  dropdownList.scroll(0, 0)
-  dropdownItems.forEach(val => val.classList.remove('none'));
+  countryPickerList.scroll(0, 0)
+  countryPickerItems.forEach(val => val.classList.remove('none'));
 }
 
 function favCountriesAdd(country) {
@@ -75,23 +75,23 @@ function favCountriesRender() {
   })
 }
 
-function dropdownToggle() { 
-  if (dropdownList.classList.contains('dropdown-list--toggled')) {
-    dropdownClose();
+function countryPickerToggle() { 
+  if (countryPickerList.classList.contains('country_picker-list--toggled')) {
+    countryPickerClose();
   } else {
-    dropdownOpen();
+    countryPickerOpen();
   }
 }
 
-function dropdownOpen() {
-  dropdownInput.value = "";
-  dropdownInput.focus();
-  dropdownList.classList.add('dropdown-list--toggled');
-  dropdownArrow.classList.add('dropdown-icon--toggled');
+function countryPickerOpen() {
+  countryPickerInput.value = "";
+  countryPickerInput.focus();
+  countryPickerList.classList.add('country_picker-list--toggled');
+  countryPickerArrow.classList.add('country_picker-icon--toggled');
 }
 
-function dropdownClose() {
-  dropdownList.classList.remove('dropdown-list--toggled');
-  dropdownArrow.classList.remove('dropdown-icon--toggled');
+function countryPickerClose() {
+  countryPickerList.classList.remove('country_picker-list--toggled');
+  countryPickerArrow.classList.remove('country_picker-icon--toggled');
 }
 
