@@ -55,7 +55,8 @@ function countriesSelect(country) {
   countryPickerInput.value = country.innerText;
   countryPickerClose();
   favCountriesAdd(country);
-  countryPickerList.scroll(0, 0)
+  countryPickerList.scroll(0, 0);
+  favCountriesBlock.classList.remove('none');
   countryPickerItems.forEach(val => val.classList.remove('none'));
 }
 
